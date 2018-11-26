@@ -35,7 +35,11 @@ python manage.py makemigrations && python manage.py makemigrations submissions
 ``` bash
 python manage.py migrate
 ```
+``` bash
+python manage.py createsuperuser
+```
 
 ``` bash
 python manage.py runserver
 ```
+Next (temporary) go to /admin and log in with your superuser credentials. Now you should be able to add submissions from the admin panel and view the home page.
