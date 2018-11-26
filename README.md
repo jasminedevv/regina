@@ -1,6 +1,6 @@
 # Regina
 
-Regina is an AI that matches you up with victims of the same abuser while keeping your identity secret.
+Regina is an AI that matches you up with victims of the same abuser while keeping your identity and private informations secret.
 
 # Technologies
 
