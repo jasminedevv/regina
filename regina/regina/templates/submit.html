@@ -1,30 +1,34 @@
-{#  https://docs.djangoproject.com/en/2.1/ref/contrib/auth/  #}
+{% extends "base_generic.html" %}
 
-{#  use with syntax: {{ user.value }}  #}
+
+{# https://docs.djangoproject.com/en/2.1/ref/contrib/auth/ #}
+
+{# use with syntax: {{ user.value }} #}
 
 {#
-    This template has access to these objects: user, form, error
-    user: username, email
-    form has the following fields whose content all need to go in the POST request:
-    visible_title, content, perp_name, place
-    Example: {{ form.perp_name }}
-    You can also just do {{ form }} and then style it from there
-    error: gets the error text from the backend for form validation. Use it like {{ error }}
+This template has access to these objects: user, form, error
+user: username, email
+form has the following fields whose content all need to go in the POST request:
+visible_title, content, perp_name, place
+Example: {{ form.perp_name }}
+You can also just do {{ form }} and then style it from there
+error: gets the error text from the backend for form validation. Use it like {{ error }}
 #}
 
-{% extends "base_generic.html" %}
 
 {% block content %}
 
+
 <div class="new-event-form-container">
-    <h1>new event</h1>
-    <p id="new-event-form-directions">be as detailed or succinct as you're comfortable with.  this information will only ever be read by you and machines.</p>
+    <h1>Create New Event</h1>
+    <p id="new-event-form-directions">Please be as detailed or succinct as you feel comfortable with during this process. This information will only ever be read by you and our AI. The details of the event won't be accessible by anyone after you
+        press submit, including you.</p>
 
-
-        <form action="POST">
-
-
-        </form>
+    <form action="output/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="OK">
+    </form>
 </div>
 
 
