@@ -5,79 +5,18 @@
     <meta charset="UTF-8">
     <title>Regina</title>
 
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../static/regina/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="favicon.ico" />
 
-<style>
-    body {
-        color: #555;
-        background-color: #f9f9f9;
-        font-family: 'Open Sans';
-        font-size: 16px;
-        max-width: 100vw;
-        margin: 0;
-    }
-
-    #navbar {
-        width: 100vw;
-        height: 8vh;
-
-        margin-top: -16px;
-
-        background-color: #F2F2F2;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
-
-    #navbar div, #navbar .links {
-        display: inline-block;
-    }
-
-    #navbar p {
-        margin-top: .8em;
-    }
-
-    #navbar #logo {
-        margin-left: 20vw;
-    }
-
-    #logo {
-        color: #b5646e;
-        font-weight: bold;
-        font-size: 2em;
-    }
-
-    #new-event {
-        color: #609bb4;
-        font-size: 1.5em;
-    }
-
-    #account {
-        color: gray;
-        font-size: 1.2em;
-    }
-
-    .links-container {
-        margin-left: 40vw;
-    }
-
-    .links-container:nth-child(3) {
-        margin-left: 5vw;
-    }
-
-
-</style>
-
-    {% block styles %} {% endblock %}
 </head>
 
 <body>
     <div id="navbar">
         <p id="logo" class="links">Regina</p>
 
-        <div class="links-container">
-            <div class="new-event-container">
+        <div id="links-container">
+            <div id="new-event-button">
                 <p id="new-event" class="links">New Event</p>
             </div>
             <p id="account" class="links">{{ user.username }}</p>
