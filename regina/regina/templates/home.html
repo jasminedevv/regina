@@ -1,13 +1,20 @@
-<h1 id="events-header-text">Your Events</h1>
+{#  https://docs.djangoproject.com/en/2.1/ref/contrib/auth/  #}
 
-<div class="row">
-    {{ for submission in Submission }}
-        <div class="card">
-            <h2>{{ this.visible_title }}</h2>
+{#  use with syntax: {{ user.value }}  #}
 
-            <div class="match">
-                <p class="match-text">{{ this.matches }}</p>
-            </div>
-        </div>
-    {{/each}}
-</div>
+{#
+    This template has access to these objects: user, submissions_titles
+    user: username, email
+    submissions: all the submissions the user has made. Only the visible titles are passed to the template.
+    Access them like this:
+    {% for title in submissions_titles %}
+        {{ title }}
+    {% empty %}
+        displays if no submissions
+    {% endfor %}
+
+#}
+
+{% extends "base_generic.html" %}
+
+{% block content %}
