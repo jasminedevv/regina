@@ -1,6 +1,16 @@
-<!-- {#  https://docs.djangoproject.com/en/2.1/ref/contrib/auth/  #} -->
+{#  https://docs.djangoproject.com/en/2.1/ref/contrib/auth/  #}
 
-<!-- {#  use with syntax: {{ user.value }}  #} -->
+{#  use with syntax: {{ user.value }}  #}
+
+{# 
+    This template has access to these objects: user, form, error
+    user: username, email
+    form has the following fields whose content all need to go in the POST request:
+    visible_title, content, perp_name, place
+    Example: {{ form.perp_name }}
+    You can also just do {{ form }} and then style it from there
+    error: gets the error text from the backend for form validation. Use it like {{ error }}
+#}
 
 
 {% extends "base_generic.html" %} 
