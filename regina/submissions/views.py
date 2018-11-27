@@ -13,35 +13,18 @@ from django.contrib.auth.forms import UserCreationForm
 # no clue what this does
 from django.forms import modelformset_factory
 
-def manage_authors(request):
-    AuthorFormSet = modelformset_factory(Author, fields=('name', 'title'))
-    if request.method == 'POST':
-        formset = AuthorFormSet(request.POST, request.FILES)
-        if formset.is_valid():
-            formset.save()
-            # do something.
-    else:
-        formset = AuthorFormSet()
-    return render(request, 'manage_authors.html', {'formset': formset})
-
 # Create your views here.
 
 def home(request):
     user = request.user
     if user.is_authenticated:
-        return render(request, 'home.html', {'user':user})
+        user = User.objects.get(username=request.user.username)
+        user_submissions = Submission.objects.filter(user=user)
+        
+        return render(request, 'home.html', {'user':user, 'submissions':user_submissions})
     else:
         return redirect('accounts/login/')
 
-# def new_submission(request):
-#     form = SubmissionForm(request.POST)
-#     if form.is_valid():
-#         submission = form.save(commit=False)
-#         submission.user = request.user
-#         submission.save()
-#         return True
-#     else:
-#         return False
 
 def submit(request):
     user = request.user
@@ -64,12 +47,7 @@ def submit(request):
     else:
         return redirect('accounts/login/')
 
-class Accounts(UserCreationForm):
-    '''
-        potentially not needed.
-    '''
-
-
+# not wired up yet, probably doesn't work
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
