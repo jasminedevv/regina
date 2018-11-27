@@ -1,36 +1,38 @@
 <!-- {#  https://docs.djangoproject.com/en/2.1/ref/contrib/auth/  #} -->
-
 <!-- {#  use with syntax: {{ user.value }}  #} -->
 
-
-{% extends "base_generic.html" %} 
-
-{% block styles %}
-<style>
-    
-</style>
-{% endblock %} 
-
+{% extends "base_generic.html" %}
 
 {% block content %}
 
-<div class="bar"></div>
-<div class="container">
-    <h1>Regina</h1>
-    <h2>Welcome {{ user.username }}</h2>
-    <div class="progress">
-        
-<form action="POST"></form>
+<div class="new-event-form-container">
+    <h1>new event</h1>
+    <p id="new-event-form-directions">be as detailed or succinct as you're comfortable with.  this information will only ever be read by you and machines.</p>
 
-    </div>
+
+        <form action="POST">
+
+
+        </form>
 </div>
-<br>
-{% endblock %} 
 
-{% block scripts %} 
 
-<script>
 
-</script>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{% block scripts %}
+
 
 {% endblock %}

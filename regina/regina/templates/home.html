@@ -1,22 +1,13 @@
-{% extends "base_generic.html" %}
+<h1 id="events-header-text">Your Events</h1>
 
-{% block content %}
+<div class="row">
+    {{ for submission in Submission }}
+        <div class="card">
+            <h2>{{ this.visible_title }}</h2>
 
-<img id="empty" src="../../static/regina/img/empty.png" alt="Image of an unaddressed envelope">
-<p class="empty-text">Looks like you haven't created an event yet!</p>
-<p class="empty-text">Would you like to?</p>
-
-
-
-
-
+            <div class="match">
+                <p class="match-text">{{ this.matches }}</p>
+            </div>
+        </div>
+    {{/each}}
 </div>
-<br>
-
-
-
-{% endblock %}
-
-{% block scripts %}
-
-{% endblock %}

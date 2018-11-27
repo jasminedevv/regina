@@ -43,6 +43,7 @@ body {
 #logo {
     color: #b5646e;
     font-size: 2em;
+    font-weight: 300;
 }
 
 #new-event-button {
@@ -116,4 +117,33 @@ body {
 
 .empty-text:last-of-type:hover {
     cursor: pointer;
+}
+
+/***************************
+
+      NEW EVENT FORM
+
+***************************/
+.new-event-form-container {
+    width: 60vw;
+    height: 82vh;
+
+    margin: 5vh auto;
+
+    background-color: #f2f2f2;
+
+    border: 1px solid #b5646e;
+    border-radius: 15px;
+}
+
+.new-event-form-container h1 {
+    margin-left: calc(50% - 75px);
+    width: 150px;
+
+
+}
+
+.new-event-form-container #new-event-form-directions {
+    margin-left: calc(50% - 400px);
+    width: 800px;
 }
