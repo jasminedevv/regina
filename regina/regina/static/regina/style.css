@@ -24,7 +24,7 @@ body {
     display: inline-block;
 }
 
-#navbar #logo, #navbar #account {
+#navbar #logo {
     margin-top: .8em;
 }
 
@@ -33,11 +33,11 @@ body {
 }
 
 #navbar #links-container {
-    margin-left: 40vw;
+    margin-left: 42vw;
 }
 
 #navbar #links-container #account {
-    margin-left: 2vw;
+    margin-left: 1vw;
 }
 
 #logo {
@@ -53,7 +53,7 @@ body {
     border-radius: 15px;
 
     color: #609bb4;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 400;
     line-height: .1em;
 
@@ -68,7 +68,7 @@ body {
     background-color: #609bb4;
 
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 400;
     line-height: .1em;
 
@@ -130,20 +130,41 @@ body {
 
     margin: 5vh auto;
 
-    background-color: #f2f2f2;
+    background-color: #F8F8F8;
 
-    border: 1px solid #b5646e;
+    border: 1px solid #e5e5e5;
     border-radius: 15px;
 }
 
 .new-event-form-container h1 {
-    margin-left: calc(50% - 75px);
-    width: 150px;
+    margin-left: calc(50% - 130px);
+    width: 230px;
 
-
+    font-weight: 400;
+    font-size: 1.75em;
+    color: #488199;
 }
 
 .new-event-form-container #new-event-form-directions {
-    margin-left: calc(50% - 400px);
-    width: 800px;
+    margin-top: -5px;
+    margin-left: calc(50% - 390px);
+    width: 750px;
+
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px 15px;
+
+    font-size: 1em;
+    font-weight: 300;
+    color: grey;
 }
+
+
+
+
+
+
+
+
+
+/* */

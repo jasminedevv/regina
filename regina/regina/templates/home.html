@@ -1,19 +1,19 @@
-
+{% extends "base_generic.html" %}
 {% block content %}
 
 {% for submission in submissions %}
+    <div class="event-card">
     <h2>{{ submission.visible_title }}</h2>
-    <button>View Matches</button>
+        <div class="matches-container">
+            <p class="matches-text"> </p>
+        </div>
+    </div>
 {% empty %}
-    <img id="empty" src="../../static/regina/img/empty.png" alt="Image of an unaddressed envelope">
+    <img id="empty" src="../../static/regina/img/empty.png" alt="Image of an unaddressed envelope.">
     <p class="empty-text">Looks like you haven't created an event yet!</p>
     <p class="empty-text">Would you like to?</p>
 {% endfor %}
 
-
-
-</div>
-<br>
 
 
 
