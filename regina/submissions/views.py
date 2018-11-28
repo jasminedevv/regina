@@ -23,7 +23,7 @@ def home(request):
         
         return render(request, 'home.html', {'user':user, 'submissions':user_submissions})
     else:
-        return redirect('accounts/login/')
+        return render(request, 'landing.html')
 
 def update_matches(submission):
     '''
