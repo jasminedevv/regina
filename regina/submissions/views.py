@@ -20,10 +20,10 @@ def home(request):
     if user.is_authenticated:
         user = User.objects.get(username=request.user.username)
         user_submissions = Submission.objects.filter(user=user)
-        
+
         return render(request, 'home.html', {'user':user, 'submissions':user_submissions})
     else:
-        return redirect('accounts/login/')
+        return render(request, 'landing.html')
 
 def update_matches(submission):
     '''

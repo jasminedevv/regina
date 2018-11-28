@@ -19,8 +19,11 @@ from django.urls import path, include
 from submissions.views import home, submit, signup
 from django.contrib import admin
 
+from django.views.generic import RedirectView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/profile/', RedirectView.as_view(url='/')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('signup/', signup, name='signup'),
     path('submit/', submit),
