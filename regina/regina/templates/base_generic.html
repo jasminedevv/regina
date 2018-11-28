@@ -21,7 +21,9 @@
                     <p id="new-event" class="links">New Event</p>
                 </div>
             </a>
-            <p id="account" class="links">{{ user.username }}</p>
+            <a href="/accounts/logout">
+                <p id="account" class="links">log out {{ user.username }}</p>
+            </a>
         </div>
     </div>
 

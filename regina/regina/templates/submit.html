@@ -19,17 +19,32 @@ error: gets the error text from the backend for form validation. Use it like {{ 
     <p id="new-event-form-directions">Please be as detailed or succinct as you feel comfortable with during this process. This information will only ever be read by you and our AI. The details of the event (except the visible title you choose) won't be accessible by anyone after you
         press submit, including you.</p>
 
-    <form method="post">
-        {% csrf_token %}
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
 
-            <textarea name="visible_title" required id="id_visible_title"></textarea>
-            <textarea name="content" required id="id_content"></textarea>
-            <textarea name="perp_name" required id="id_perp_name"></textarea>
-            <textarea name="place" required id="id_place"></textarea>
 
-            <input type="submit" value="OK">
+                <div class="visible-title-container input-container">
+                    <label>Visible Title</label>
+                    <input type="text" name="visible_title" required id="id_visible_title"></input>
+                </div>
+                <div class="content-container input-container">
+                    <label>Description</label>
+                    <textarea name="content" required id="id_content" rows="5"></textarea>
+                </div>
+                <div class="perp-name-container input-container">
+                    <label>Accused Name</label>
+                    <input type="text" name="perp_name" required id="id_perp_name"></input>
+                </div>
+                <div class="place-container input-container">
+                    <label>Place</label>
+                    <input type="text" name="place" required id="id_place"></input>
+                </div>
 
-    </form>
+                <input type="submit" value="submit">
+
+        </form>
+    </div>
 </div>
 
 
