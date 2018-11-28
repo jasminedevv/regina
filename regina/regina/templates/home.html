@@ -1,11 +1,11 @@
 {% extends "base_generic.html" %}
 {% block content %}
-
+<div class="flex-container">
 {% for submission in submissions %}
     <div class="event-card">
     <h2>{{ submission.visible_title }}</h2>
         <div class="matches-container">
-            <p class="matches-text"> {{ submission.matches }}</p>
+            <p class="matches-text"> {{ submission.matches }} Matches</p>
         </div>
     </div>
 {% empty %}
@@ -13,7 +13,7 @@
     <p class="empty-text">Looks like you haven't created an event yet!</p>
     <p class="empty-text">Would you like to?</p>
 {% endfor %}
-
+</div>
 
 
 
