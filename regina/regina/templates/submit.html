@@ -1,3 +1,5 @@
+{% extends "base_generic.html" %}
+
 {#  https://docs.djangoproject.com/en/2.1/ref/contrib/auth/  #}
 
 {#  use with syntax: {{ user.value }}  #}
@@ -12,19 +14,25 @@
     error: gets the error text from the backend for form validation. Use it like {{ error }}
 #}
 
-{% extends "base_generic.html" %}
-
 {% block content %}
 
 <div class="new-event-form-container">
     <h1>new event</h1>
     <p id="new-event-form-directions">be as detailed or succinct as you're comfortable with.  this information will only ever be read by you and machines.</p>
 
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            
+            <textarea name="visible_title" required id="id_visible_title"></textarea>
+            <textarea name="content" required id="id_content"></textarea>
+            <textarea name="perp_name" required id="id_perp_name"></textarea>
+            <textarea name="place" required id="id_place"></textarea>
 
-        <form action="POST">
-
+            <input type="submit" value="OK">
 
         </form>
+    </div>
 </div>
 
 
