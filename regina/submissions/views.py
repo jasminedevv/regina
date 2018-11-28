@@ -44,6 +44,7 @@ def submit(request):
                 submission.user = User.objects.get(username=request.user.username)
                 print(submission.user.username)
                 submission.save()
+                submission.update_matches()
                 return redirect('/')
             else:
                 error = "There was a problem with your form. Please try again."
