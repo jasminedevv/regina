@@ -22,13 +22,22 @@ class Submission(models.Model):
             return matches
         else:
             return None
-    def update_matches(self):
+    def initialize_matches(self):
+        '''
+            Currently only applicable to submissions that have just been created
+            There should eventually be logic that updates all related submissions when they match with a new one
+        '''
         my_matches = self.match()
         self.matches = 0
         # self.matches_users = []
         for submission in my_matches:
             self.matches_users.add(submission.user)
+            submission.matches_users.add(self.user)
+            submission.save()
             self.matches += 1
+        # quick fix for submissions matching with themselves
+        self.matches -= 1
+        self.save()
 
     def __str__(self):
         return self.visible_title
