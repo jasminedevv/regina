@@ -129,10 +129,12 @@ body {
 
 ***************************/
 .event-card {
-    width: 14vw;
-    height: 14vw;
+    width: 15vw;
+    height: 15vw;
 
     padding: 1vw;
+
+    margin-bottom: 3vw;
 
     background-color: #fff;
     border: 1px solid #e5e5e5;
@@ -143,8 +145,7 @@ body {
     width: 10.5vw;
     height: auto;
 
-    margin-top: 5vw;
-    margin: 6vw calc(50% - 5.5vw);
+    margin: 8vw calc(50% - 5.5vw);
 
     border: 1px solid #609bb4;
     border-radius: 15px;
@@ -163,6 +164,25 @@ body {
     text-align: center;
     color: darkgrey;
 }
+
+/***************************
+
+        CARD FLEX
+
+***************************/
+
+.flex-container {
+    max-width: 60vw;
+
+    margin: 50px auto;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: space-around;
+}
+
 
 /***************************
 
