@@ -11,6 +11,7 @@ class Submission(models.Model):
     matches = models.IntegerField(default=0)
     matches_users = models.ManyToManyField(User, related_name='matches_users')
     def update_my_matches(self):
-
+        '''
+        '''
     def __str__(self):
         return self.visible_title
