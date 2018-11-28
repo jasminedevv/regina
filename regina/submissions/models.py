@@ -6,6 +6,9 @@ class Submission(models.Model):
     content = models.TextField(blank=False)
     perp_name = models.TextField(blank=False)
     place = models.TextField(blank=False)
-    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
+    # should be changed to 'author' if we have time to refactor
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    matches = models.IntegerField(default=0)
+    matches_users = models.ManyToManyField(User, related_name='matches_users')
     def __str__(self):
         return self.visible_title

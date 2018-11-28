@@ -25,6 +25,10 @@ def home(request):
     else:
         return redirect('accounts/login/')
 
+def update_matches(submission):
+    '''
+
+    '''
 
 def submit(request):
     user = request.user
