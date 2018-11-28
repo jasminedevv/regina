@@ -1,3 +1,7 @@
+* {
+    text-decoration: none;
+}
+
 body {
     color: #555;
     background-color: #f9f9f9;
@@ -121,16 +125,57 @@ body {
 
 /***************************
 
+          CARDS
+
+***************************/
+.event-card {
+    width: 14vw;
+    height: 14vw;
+
+    padding: 1vw;
+
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+}
+
+.event-card .matches-container {
+    width: 10.5vw;
+    height: auto;
+
+    margin-top: 5vw;
+    margin: 6vw calc(50% - 5.5vw);
+
+    border: 1px solid #609bb4;
+    border-radius: 15px;
+}
+
+.event-card h2 {
+    margin: 1vw;
+    max-height: 2vw;
+
+    color: grey;
+    font-weight: 500;
+    text-align: center;
+}
+
+.event-card .matches-container .matches-text {
+    text-align: center;
+    color: darkgrey;
+}
+
+/***************************
+
       NEW EVENT FORM
 
 ***************************/
 .new-event-form-container {
-    width: 60vw;
-    height: 82vh;
+    max-width: 60vw;
+    max-height: 82vh;
 
     margin: 5vh auto;
 
-    background-color: #F8F8F8;
+    background-color: #fff;
 
     border: 1px solid #e5e5e5;
     border-radius: 15px;
