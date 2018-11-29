@@ -1,42 +1,48 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-def all_questions(request):
-    questions = Question.objects.annotate(number_of_answers=models.Count('answer'))
 
 class Submission(models.Model):
     visible_title = models.TextField(blank=False)
     content = models.TextField(blank=False)
     perp_name = models.TextField(blank=False)
     place = models.TextField(blank=False)
-    # should be changed to 'author' if we have time to refactor
+    # TODO should be changed to 'author' if we have time to refactor
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     matches = models.IntegerField(default=0)
     matches_users = models.ManyToManyField(User, related_name='matches_users')
     def add_match(self):
         self.matches += 1
+
     def match(self):
         name_matches = Submission.objects.filter(perp_name=self.perp_name)
-        matches = name_matches.filter(place=self.place)
-        if matches:
-            return matches
-        else:
-            return None
+        matching_submissions = name_matches.filter(place=self.place)
+        print(type(matching_submissions))
+        # TODO: make sure this works when u have wifi
+        return list(matching_submissions)
+
+    def add_matches_user(self, user):
+        self.matches_users.add(user)
+        self.matches = len(self.matches_users.all())
+        self.save()
+
     def initialize_matches(self):
         '''
             Currently only applicable to submissions that have just been created
             There should eventually be logic that updates all related submissions when they match with a new one
         '''
+        # TODO notify added users
         my_matches = self.match()
         self.matches = 0
-        # self.matches_users = []
+        print(my_matches)
+        # adds users in matching submissions to itself
         for submission in my_matches:
-            self.matches_users.add(submission.user)
-            submission.matches_users.add(self.user)
-            submission.save()
-            self.matches += 1
+            self.add_matches_user(submission.user)
+            submission.add_matches_user(self.user)
+            # TODO: why isn't this working??
+            print(isinstance(submission, Submission))
         # quick fix for submissions matching with themselves
-        self.matches -= 1
+        self.matches = len(self.matches_users.all())
         self.save()
 
     def __str__(self):
@@ -63,4 +69,11 @@ print(s.matches)
 print("Now for the soup du jour")
 s.update_matches()
 print(s.matches)
+'''
+
+
+'''
+call them incidents
+situation
+think about descriptions/brief description
 '''
