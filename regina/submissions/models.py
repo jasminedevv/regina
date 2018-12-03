@@ -15,6 +15,9 @@ class Submission(models.Model):
         self.matches += 1
 
     def match(self):
+        '''
+            Returns all submissions that match the current submission.
+        '''
         name_matches = Submission.objects.filter(perp_name=self.perp_name)
         matching_submissions = name_matches.filter(place=self.place)
         print(type(matching_submissions))
@@ -23,13 +26,12 @@ class Submission(models.Model):
 
     def add_matches_user(self, user):
         self.matches_users.add(user)
-        self.matches = len(self.matches_users.all())
+        self.matches = len(self.matches_users.all()) - 1
         self.save()
 
     def initialize_matches(self):
         '''
-            Currently only applicable to submissions that have just been created
-            There should eventually be logic that updates all related submissions when they match with a new one
+            Updates itself and matching submissions with related users.
         '''
         # TODO notify added users
         my_matches = self.match()
@@ -42,7 +44,7 @@ class Submission(models.Model):
             # TODO: why isn't this working??
             print(isinstance(submission, Submission))
         # quick fix for submissions matching with themselves
-        self.matches = len(self.matches_users.all())
+        self.matches = len(self.matches_users.all()) -1
         self.save()
 
     def __str__(self):
