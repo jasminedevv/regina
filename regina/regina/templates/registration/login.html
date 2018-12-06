@@ -13,38 +13,55 @@
 {% if next %}
 {% if user.is_authenticated %}
 <p>Your account doesn't have access to this page. To proceed,
-  please login with an account that has access.</p>
+    please login with an account that has access.</p>
 {% else %}
 <p>Please login to see this page.</p>
 {% endif %}
 {% endif %}
 
-<form method="post" action="{% url 'login' %}">
-  {% csrf_token %}
-  <div class="flex-container">
-  <div>
-    <h1>log in</h1>
-    <td>Email</td>
-    <td>{{ form.username }}</td>
-  </div>
-  <div>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-  </div>
 
-  <div>
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next }}" />
-  </div>
-</form>
+<div class="login-flex-container">
 
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
+    <div class="login-container">
+        <h1 class="login-text">log in</h1>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div>
+                <label>Email</label>
+                <input type="text" name="username" required id="id_username"></input>
 
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="text" name="password" required id="id_password"></input>
+            </div>
+
+            <div>
+                <input type="submit" value="login" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </div>
+
+            {# Assumes you setup the password_reset view in your URLconf #}
+            <p id="lost-pass"><a href="{% url 'password_reset' %}">Lost password?</a></p>
+        </form>
+    </div>
+
+    <div class="login-container">
+        <h1 class="login-text">sign up</h1>
+            <form method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
+                <div>
+                    <label>Email</label>
+                    <input type="text" name="username" required id="id_username"></input>
+
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input type="text" name="password" required id="id_password"></input>
+                </div>
+                <button type="submit" class="signup-submit">sign up</button>
+            </form>
+    </div>
 </div>
 
 <!-- <form method="post" action="{ url 'signup' }">
@@ -67,7 +84,6 @@
 
 </form> -->
 
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
 
 {% endblock %}
