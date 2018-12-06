@@ -62,7 +62,6 @@ body {
     font-size: 1em;
     font-weight: 400;
     line-height: .1em;
-
 }
 
 #new-event-button:hover {
@@ -149,7 +148,7 @@ body {
 
     margin: 8vw calc(50% - 5.5vw);
 
-    border: 1px solid #609bb4;
+    border: 1px solid #fff;
     border-radius: 15px;
 }
 
@@ -173,7 +172,7 @@ body {
 
 ***************************/
 
-.flex-container {
+.card-flex-container {
     max-width: 60vw;
 
     margin: 50px auto;
