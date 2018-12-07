@@ -24,7 +24,7 @@
 
     <div class="login-container">
         <h1 class="login-text">log in</h1>
-        <form method="post" action="{% url 'login' %}">
+        <form method="post" action="{% url 'login' %}" class="login-flex">
             {% csrf_token %}
             <div>
                 <label>Email</label>
@@ -33,7 +33,7 @@
             </div>
             <div>
                 <label>Password</label>
-                <input type="text" name="password" required id="id_password"></input>
+                <input type="password" name="password" required id="id_password"></input>
             </div>
 
             <div>
@@ -41,14 +41,14 @@
                 <input type="hidden" name="next" value="{{ next }}" />
             </div>
 
-            {# Assumes you setup the password_reset view in your URLconf #}
-            <p id="lost-pass"><a href="{% url 'password_reset' %}">Lost password?</a></p>
         </form>
+        {# Assumes you setup the password_reset view in your URLconf #}
+        <p id="lost-pass"><a href="{% url 'password_reset' %}">Lost password?</a></p>
     </div>
 
     <div class="login-container">
         <h1 class="login-text">sign up</h1>
-            <form method="post" action="{% url 'signup' %}">
+            <form method="post" action="{% url 'signup' %}" class="login-flex">
                 {% csrf_token %}
                 <div>
                     <label>Email</label>
@@ -57,9 +57,11 @@
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type="text" name="password" required id="id_password"></input>
+                    <input type="password" name="password" required id="id_password"></input>
                 </div>
-                <button type="submit" class="signup-submit">sign up</button>
+                <div>
+                    <input type="submit" value="sign up" />
+                </div>
             </form>
     </div>
 </div>
