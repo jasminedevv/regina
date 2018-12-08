@@ -12,15 +12,15 @@
 {% block content %}
 
 {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+<p text-align="center">Your username and password didn't match. Please try again.</p>
 {% endif %}
 
 {% if next %}
 {% if user.is_authenticated %}
-<p>Your account doesn't have access to this page. To proceed,
+<p text-align="center">Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
 {% else %}
-<p>Please login to see this page.</p>
+<p text-align="center">Please login to see this page.</p>
 {% endif %}
 {% endif %}
 
@@ -70,25 +70,7 @@
     </div>
 </div>
 
-<!-- <form method="post" action="{ url 'signup' }">
-  {% csrf_token %}
 
-  <div>
-    <h1>Sign Up</h1>
-    <td>Email</td>
-    <td>{{ form.email }}</td>
-  </div>
-  <div>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-  </div>
-
-  <div>
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next }}" />
-  </div>
-
-</form> -->
 
 
 

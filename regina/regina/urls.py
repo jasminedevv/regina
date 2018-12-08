@@ -21,9 +21,11 @@ from django.contrib import admin
 
 from django.views.generic import RedirectView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/profile/', RedirectView.as_view(url='/')),
+    # path('accounts/logout/', RedirectView.as_view(url='/accounts/login/')), redirects but doesn't logout
     path('accounts/', include('django.contrib.auth.urls')),
     path('signup/', signup, name='signup'),
     path('submit/', submit),
