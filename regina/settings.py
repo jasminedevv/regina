@@ -135,4 +135,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     # '/var/www/static/',
 ]
+
+# hgggnuuhnngng
+import socket
+for _ in range(10):
+    print(socket.gethostname())
+
 django_heroku.settings(locals())
