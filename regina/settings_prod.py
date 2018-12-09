@@ -22,3 +22,5 @@ SESSION_COOKIE_SECURE = True
 
 # this will probably be /public or something so that it can get static files at /public/static
 # STATIC_ROOT = 'some/path/idk'
+
+SECRET_KEY = os.environ.SECRET_KEY
