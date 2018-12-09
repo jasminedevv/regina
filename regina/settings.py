@@ -21,9 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# hgggnuuhnngng
-import socket
-if socket.gethostname() == "32034651-85fc-4e8e-a063-36e7ca59d241":
+
+ON_HEROKU = 'ON_HEROKU' in os.environ
+
+if ON_HEROKU:
     from .settings_prod import *
 else:
     from .settings_dev import *
