@@ -12,9 +12,9 @@ import os
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['regina.eepy.net']
+ALLOWED_HOSTS = ['regina-app.herokuapp.com']
 
-DATABASES = db_options
+# DATABASES = db_options
 
 CSRF_COOKIE_SECURE = True
 

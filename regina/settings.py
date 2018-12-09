@@ -21,14 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2zh$%e2k&fb8xy)d_($m#_o(82c)*8so6f!g5@es*7j%zad-g!'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
+# hgggnuuhnngng
+import socket
+if socket.gethostname() == "32034651-85fc-4e8e-a063-36e7ca59d241":
+    from .settings_prod import *
+else:
+    from .settings_dev import *
 
 # Application definition
 
@@ -79,20 +77,6 @@ WSGI_APPLICATION = 'regina.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-# DATABASES = {
-#    'default': {
-#       'ENGINE': 'djongo',
-#       'NAME': 'regina',
-#    }
-# }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -136,9 +120,5 @@ STATICFILES_DIRS = [
     # '/var/www/static/',
 ]
 
-# hgggnuuhnngng
-import socket
-for _ in range(10):
-    print(socket.gethostname())
-
+# hopefully this handles db stuff for me :/
 django_heroku.settings(locals())
