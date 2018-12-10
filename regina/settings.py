@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'regina',
-    'submissions',
-    'chat'
+    'submissions'
 ]
 
 MIDDLEWARE = [
